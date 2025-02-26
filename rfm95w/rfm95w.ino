@@ -11,7 +11,7 @@
 #define RFM95_CS 10       // Chip-Select
 #define RFM95_RST 9       // Reset
 #define RFM95_IRQ 2       // Interrupt (DIO0)
-#define LED_PIN 6         // LED
+#define LED_PIN 5        // LED
 #define SWITCH_PIN 7      // Load switch
 
 uint8_t message[8] = {0xA7, 0xF1, 0xD9, 0x2A, 0x82, 0xC8, 0xD8, 0xFE}; // 8-byte message
