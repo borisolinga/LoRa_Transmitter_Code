@@ -128,11 +128,11 @@ void initializeRF95Module() {
   // Set preamble length
   rf95.spiWrite(0x20, 0x00); // RegPreambleMsb = 0
   rf95.spiWrite(0x21, 0x08); // RegPreambleLsb = 8
+// CRC ON
+uint8_t modemConfig2 = rf95.spiRead(0x1E);   // Read the RegModemConfig2 register
+modemConfig2 |= (1 << 2);                   // Set bit 2 (CRC_ON) to 1
+rf95.spiWrite(0x1E, modemConfig2);          // Write the new value back to the register
 
-  // Disable CRC
-  uint8_t modemConfig2 = rf95.spiRead(0x1E);
-  modemConfig2 &= ~(1 << 2); // Disable CRC_ON
-  rf95.spiWrite(0x1E, modemConfig2);
 
   Serial.println("RF95 initialized with custom settings.");
 }
